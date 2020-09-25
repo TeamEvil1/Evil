@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-cd $HOME/BLACKBOTSS
+cd $HOME/TeamEvil
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x BLACKBOTSS
+chmod +x TeamEvil
 chmod +x ts
 ./ts
 }
 get() {
-rm -fr BLACKBOTSS.lua
+rm -fr TeamEvil.lua
 rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/BLACKBOTSS/BLACKBOTSS/master/BLACKBOTSS.lua"
+wget "https://raw.githubusercontent.com/TeamEvil1/TeamEvil1/master/TeamEvil.lua"
 lua start.lua
 }
 installall(){
@@ -47,7 +47,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd BLACKBOTSS
+cd TeamEvil
 rm -rf luarocks*
 lua start.lua
 
