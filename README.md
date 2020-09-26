@@ -8,7 +8,7 @@ Installation
 
 install :
 
-``` git clone https://github.com/TeamEvil1/TeamEvil1 && cd TeamEvil && chmod +x install.sh && ./install.sh ```
+``` git clone https://github.com/TeamEvil1/TeamEvil1;cd TeamEvil;chmod +x install.sh; ./install.sh ```
 
 ______________________________________________________________________________________________________________________
 
