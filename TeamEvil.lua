@@ -147,7 +147,7 @@ function Get_Rank(user_id,chat_id)
 if tonumber(user_id) == tonumber(805026127) then  
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(656150043) then  
-var = "Ali M."  
+var = "مطور السورس الثانوي"  
 elseif DevTeamEvile(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
@@ -349,7 +349,7 @@ ID="InputMessageAudio",
 audio_ = GetInputFile(audio),
 duration_ = "",
 title_ = title or "",
-performer_ = "حسن مؤيد",
+performer_ = "Ali M.",
 caption_ = caption or ""
 }},func or dl_cb,nil)
 end
